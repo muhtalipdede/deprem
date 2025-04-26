@@ -24,7 +24,7 @@ def get_earthquake(last_day):
 
     try:
         # API isteği gönderme
-        response = requests.post(url, json=request_payload, timeout=10)
+        response = requests.post(url, json=request_payload, timeout=60)
         response.raise_for_status()  # HTTP hatalarını kontrol et
 
         # JSON yanıtını işleme
@@ -37,7 +37,7 @@ def get_earthquake(last_day):
         for earthquake in response_data:
             try:
                 date = earthquake["eventDate"]
-                address = earthquake["location"] + " " + float(earthquake["magnitude"])
+                address = earthquake["location"]
                 magnitude = float(earthquake["magnitude"])
                 latitude = float(earthquake["latitude"])
                 longitude = float(earthquake["longitude"])

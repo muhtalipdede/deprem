@@ -3,14 +3,9 @@ import folium.plugins
 
 
 def get_magnitude_map(df, fault_line):
-    # DataFrame'in boş olup olmadığını kontrol et
-    if df.empty:
-        raise ValueError("Deprem verileri boş. Harita oluşturulamıyor.")
-
     # Latitude ve Longitude sütunlarında eksik değerleri kontrol et
     if df['latitude'].isnull().any() or df['longitude'].isnull().any():
-        raise ValueError("Latitude veya Longitude sütunlarında eksik değerler var. Harita oluşturulamıyor.")
-
+        raise ValueError("DataFrame'de eksik latitude veya longitude değerleri var.")
     # Harita oluşturma
     magnitude_map = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=7)
 
@@ -19,7 +14,7 @@ def get_magnitude_map(df, fault_line):
         folium.CircleMarker(
             location=[row['latitude'], row['longitude']],
             radius=row['magnitude'] * 2,
-            popup=row['address'],
+            popup=str(row['magnitude']) + ' M' + ' ' + row['address'],
             color='#3186cc',
             fill=True,
             fill_color='#3186cc'
