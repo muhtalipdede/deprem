@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-page text-center py-12">
+    <h1 class="text-5xl font-extrabold text-blue-600 mb-6">Hakkında</h1>
+    <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+        Türkiye'deki Depremler, Türkiye genelindeki deprem verilerini görselleştirmek ve kullanıcıların bu verileri kolayca anlamasını sağlamak için geliştirilmiştir. 
+        Bu uygulama, Flask framework'ü kullanılarak oluşturulmuştur.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="p-6 bg-white shadow rounded-lg">
+            <h3 class="text-xl font-semibold text-blue-600 mb-2">Amacımız</h3>
+            <p class="text-gray-600">
+                Deprem verilerini herkes için erişilebilir hale getirerek, toplumun bilinçlenmesine katkıda bulunmak.
+            </p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-lg">
+            <h3 class="text-xl font-semibold text-green-600 mb-2">Teknolojiler</h3>
+            <p class="text-gray-600">
+                Flask, GeoJSON ve diğer modern teknolojilerle desteklenen güçlü bir altyapı.
+            </p>
+        </div>
+        <div class="p-6 bg-white shadow rounded-lg">
+            <h3 class="text-xl font-semibold text-yellow-600 mb-2">Vizyonumuz</h3>
+            <p class="text-gray-600">
+                Deprem verilerini daha iyi anlamak ve gelecekteki riskleri azaltmak için yenilikçi çözümler sunmak.
+            </p>
+        </div>
+    </div>
+    <div class="mt-12">
+        <p class="text-lg text-gray-700">
+            Daha fazla bilgi almak veya bizimle iletişime geçmek için 
+            <a href="mailto:muhtalipdede@gmail.com" class="text-blue-500 font-semibold hover:underline">
+                muhtalipdede@gmail.com
+            </a> adresine e-posta gönderebilirsiniz.
+        </p>
+    </div>
+</div>
+{% endblock %}

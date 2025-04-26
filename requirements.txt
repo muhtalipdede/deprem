@@ -1,0 +1,12 @@
+gunicorn==20.1.0
+flask==2.2.2
+folium==0.14.0
+pandas==1.5.3
+requests==2.28.2
+urllib3==1.26.14
+plotly==5.13.0
+Werkzeug==2.2.2
+waitress==2.0.0
+pydeck==0.7.0
+ipython==7.28.0
+numpy==1.23.5

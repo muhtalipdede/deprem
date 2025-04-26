@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Türkiye'deki Depremler{% endblock %}</title>
+    {% include 'head.html' %}
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4 shadow-md">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold mb-2 sm:mb-0">Türkiye'deki Depremler</a>
+            <nav>
+                <ul class="flex flex-wrap space-x-4 sm:space-x-6">
+                    <li><a href="/earthquake" class="hover:underline">Depremler</a></li>
+                    <li><a href="/3d_earthquake" class="hover:underline">3D Harita</a></li>
+                    <li><a href="/about" class="hover:underline">Hakkında</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8 px-4">
+        {% block content %} {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6 mb-4">
+                <a href="https://twitter.com/muhtalipdede" target="_blank" class="hover:underline flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557a9.93 9.93 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.384 4.482A13.94 13.94 0 011.671 3.149a4.916 4.916 0 001.523 6.573 4.897 4.897 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.918 4.918 0 004.604 3.417A9.867 9.867 0 010 19.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A9.936 9.936 0 0024 4.557z"/>
+                    </svg>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://instagram.com/muhtalipdede" target="_blank" class="hover:underline flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.281.058-2.563.334-3.637 1.408-1.074 1.074-1.35 2.356-1.408 3.637-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.281.334 2.563 1.408 3.637 1.074 1.074 2.356 1.35 3.637 1.408 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.281-.058 2.563-.334 3.637-1.408 1.074-1.074 1.35-2.356 1.408-3.637.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.281-.334-2.563-1.408-3.637-1.074-1.074-2.356-1.35-3.637-1.408-1.28-.058-1.688-.072-4.947-.072zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <p class="text-sm">&copy; 2025 Türkiye'deki Depremler. Tüm hakları saklıdır.</p>
+            <p class="text-sm mt-2">Muhtalip Dede</p>
+        </div>
+    </footer>
+</body>
+</html>

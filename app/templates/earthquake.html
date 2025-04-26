@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="earthquake-container text-center py-8">
+    <h1 id="earthquake-title" class="text-4xl font-bold text-blue-600 mb-6">Depremler</h1>
+    <span class="text-lg text-gray-700">Son 1 ile 360 gün arasındaki depremleri görüntülemek için gün sayısını girin:</span>
+    <div class="flex justify-center items-center space-x-4 mb-6">
+        <input 
+            type="number" 
+            id="day-count" 
+            placeholder="Gün Sayısı" 
+            class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-600"
+        >
+        <button 
+            id="submit" 
+            class="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition"
+        >
+            Gönder
+        </button>
+    </div>
+    <div class="container mx-auto">
+        {{ magnitude_map | safe }}
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById('submit').addEventListener('click', function() {
+        const dayCount = document.getElementById('day-count').value;
+
+        if (!dayCount || dayCount < 1 || dayCount > 360) {
+            alert('Lütfen 1 ile 360 arasında bir gün sayısı girin.');
+            return;
+        }
+
+        // Sayfayı yeniden yükleyerek parametreyi URL'ye ekle
+        window.location.href = `/earthquake?last_day=${dayCount}`;
+    });
+</script>
+{% endblock %}
