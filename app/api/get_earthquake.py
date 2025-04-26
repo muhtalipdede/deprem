@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import pandas as pd
 import requests
-
+import os
 
 def get_earthquake(last_day):
     url = "https://deprem.afad.gov.tr/EventData/GetEventsByFilter"
@@ -41,8 +41,8 @@ def get_earthquake(last_day):
                 magnitude = float(earthquake["magnitude"])
                 latitude = float(earthquake["latitude"])
                 longitude = float(earthquake["longitude"])
-                dept = -float(earthquake["depth"])
-                data.append([magnitude, latitude, longitude, date, address, dept])
+                depth = -float(earthquake["depth"])
+                data.append([magnitude, latitude, longitude, date, address, depth])
             except KeyError as e:
                 print(f"Veri işleme sırasında bir anahtar hatası oluştu: {e}")
             except ValueError as e:
@@ -50,18 +50,27 @@ def get_earthquake(last_day):
 
         # DataFrame oluşturma
         df = pd.DataFrame(
-            data, columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'dept']
+            data, columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'depth']
         )
+
+        today_data = df[df['date'].str.startswith(now.strftime("%Y-%m-%d"))]
+
+        # Veriyi 'datas' klasörüne kaydetme
+        save_path = os.path.join("datas", f"earthquake_data_{now.strftime('%Y%m%d')}.csv")
+        os.makedirs("datas", exist_ok=True)  # 'datas' klasörü yoksa oluştur
+        today_data.to_csv(save_path, index=False, encoding="utf-8")  # CSV olarak kaydet
+        print(f"Veri '{save_path}' dosyasına kaydedildi.")
+
         return df
 
     except requests.exceptions.RequestException as e:
         print(f"API isteği sırasında bir hata oluştu: {e}")
-        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'dept'])
+        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'depth'])
 
     except ValueError as e:
         print(f"Yanıt işleme sırasında bir hata oluştu: {e}")
-        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'dept'])
+        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'depth'])
 
     except Exception as e:
         print(f"Beklenmeyen bir hata oluştu: {e}")
-        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'dept'])
+        return pd.DataFrame(columns=['magnitude', 'latitude', 'longitude', 'date', 'address', 'depth'])
