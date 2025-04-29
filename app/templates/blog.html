@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="blog-page py-12 bg-gray-100">
+    <!-- Başlık -->
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-blue-600 mb-4">Deprem Blog</h1>
+        <p class="text-lg text-gray-700">Depremle ilgili güncel bilgiler, ipuçları ve makaleler</p>
+    </div>
+
+    <!-- Kategoriler -->
+    <div class="container mx-auto mb-12">
+        <div class="flex flex-wrap justify-center space-x-4">
+            <a href="/blog/category/deprem-nedir" class="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+                Deprem Nedir?
+            </a>
+            <a href="/blog/category/deprem-onlemleri" class="bg-green-500 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition">
+                Deprem Önlemleri
+            </a>
+            <a href="/blog/category/deprem-bolgeleri" class="bg-yellow-500 text-white px-6 py-2 rounded-lg shadow hover:bg-yellow-700 transition">
+                Deprem Bölgeleri
+            </a>
+            <a href="/blog/category/deprem-haberleri" class="bg-red-500 text-white px-6 py-2 rounded-lg shadow hover:bg-red-700 transition">
+                Deprem Haberleri
+            </a>
+        </div>
+    </div>
+
+    <!-- Blog Yazıları -->
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Son Blog Yazıları</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Blog Kartı -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-2">Deprem Nedir?</h3>
+                <p class="text-gray-600 mb-4">Depremler hakkında temel bilgiler ve nedenleri...</p>
+                <a href="/blog/deprem-nedir" class="text-blue-500 hover:underline">Devamını Oku</a>
+            </div>
+            <!-- Blog Kartı -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-2">Deprem Anında Yapılması Gerekenler</h3>
+                <p class="text-gray-600 mb-4">Deprem sırasında hayatta kalmak için önemli ipuçları...</p>
+                <a href="/blog/deprem-aninda-yapilmasi-gerekenler" class="text-blue-500 hover:underline">Devamını Oku</a>
+            </div>
+            <!-- Blog Kartı -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-2">Deprem Bölgeleri ve Risk Haritası</h3>
+                <p class="text-gray-600 mb-4">Türkiye'nin deprem bölgeleri ve risk haritası...</p>
+                <a href="/blog/deprem-bolgeleri" class="text-blue-500 hover:underline">Devamını Oku</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

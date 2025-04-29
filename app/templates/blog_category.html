@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="blog-category-page py-12 bg-gray-100">
+    <!-- Başlık -->
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-blue-600 mb-4">{{ category_name }}</h1>
+        <p class="text-lg text-gray-700">Bu kategorideki blog yazılarını keşfedin.</p>
+    </div>
+
+    <!-- Blog Yazıları -->
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for blog in blogs %}
+            <!-- Blog Kartı -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-2">{{ blog.title }}</h3>
+                <p class="text-gray-600 mb-4">{{ blog.excerpt }}</p>
+                <a href="{{ blog.url }}" class="text-blue-500 hover:underline">Devamını Oku</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Eğer blog yoksa -->
+    {% if blogs|length == 0 %}
+    <div class="text-center mt-12">
+        <p class="text-gray-600 text-lg">Bu kategoride henüz bir blog yazısı bulunmamaktadır.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

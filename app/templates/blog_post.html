@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="blog-post-page py-12 bg-gray-100">
+    <!-- Başlık -->
+    <div class="container mx-auto text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-blue-600 mb-4">{{ post.title }}</h1>
+        <p class="text-gray-600 text-lg">Yayınlanma Tarihi: {{ post.date }}</p>
+        <p class="text-gray-600 text-lg">Yazar: {{ post.author }}</p>
+    </div>
+
+    <!-- İçerik -->
+    <div class="container mx-auto bg-white rounded-lg shadow p-6">
+        <div class="prose max-w-none">
+            {{ post.content | safe }}
+        </div>
+    </div>
+
+    <!-- Kategori ve Geri Dön -->
+    <div class="container mx-auto text-center mt-12">
+        <a href="/blog/category/{{ post.category }}" class="text-blue-500 hover:underline">
+            {{ post.category_name }}
+        </a>
+        <br>
+        <a href="/blog" class="text-gray-500 hover:underline mt-4 inline-block">← Blog Ana Sayfasına Dön</a>
+    </div>
+</div>
+{% endblock %}

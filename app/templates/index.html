@@ -1,171 +1,131 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="index-page text-center py-12">
-    <!-- Başlık ve Açıklama -->
-    <h1 class="text-5xl font-extrabold text-blue-600 mb-6">Türkiye'deki Depremler</h1>
-    <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-        Türkiye genelindeki son depremleri keşfedin, detaylı bilgilere ulaşın ve 3D haritalarla görselleştirin.
-    </p>
-
-    <!-- Ana Eylem Butonları -->
-    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
-        <a href="/earthquake" class="bg-blue-500 text-white px-8 py-4 rounded-lg shadow hover:bg-blue-700 transition">
-            Bugünkü Depremleri Görüntüle
-        </a>
-        <a href="/earthquake_waves"
-            class="bg-yellow-500 text-white px-8 py-4 rounded-lg shadow hover:bg-yellow-700 transition">
-            Deprem Dalgalarını Görüntüle
-        </a>
-        <a href="/3d_earthquake"
-            class="bg-green-500 text-white px-8 py-4 rounded-lg shadow hover:bg-green-700 transition">
-            3D Haritayı Görüntüle
-        </a>
-    </div>
-
-    <!-- Neden Bu Uygulama -->
-    <div class="mt-12">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Neden Türkiye Depremleri Uygulaması?</h2>
-        <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            Türkiye Depremleri Uygulaması, ülkemizdeki deprem verilerini hızlı ve kolay bir şekilde anlamanızı sağlar.
-            Haritalar ve görselleştirmelerle desteklenen bu uygulama, bilimsel verileri herkes için erişilebilir hale
-            getirir.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-blue-600 mb-2">Gerçek Zamanlı Veriler</h3>
-                <p class="text-gray-600">
-                    Türkiye genelindeki son depremleri anında takip edin ve detaylı bilgilere ulaşın.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-green-600 mb-2">3D Haritalar</h3>
-                <p class="text-gray-600">
-                    Türkiye'deki deprem verilerini 3D haritalar üzerinde görselleştirerek daha iyi anlayın.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-yellow-600 mb-2">Kullanıcı Dostu Arayüz</h3>
-                <p class="text-gray-600">
-                    Basit ve sezgisel bir arayüzle Türkiye'deki deprem verilerine kolayca erişin.
-                </p>
+<div class="index-page">
+    <!-- Hero Bölümü -->
+    <section class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-extrabold mb-4">Türkiye Deprem Bilgi Merkezi</h1>
+            <p class="text-lg mb-6">
+                Türkiye genelindeki son depremleri takip edin, 3D haritalarla görselleştirin ve deprem hazırlık rehberimizle güvende kalın.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="/earthquake" class="bg-white text-blue-600 px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition">
+                    Bugünkü Depremleri Görüntüle
+                </a>
+                <a href="/3d_earthquake" class="bg-yellow-500 text-white px-6 py-3 rounded-lg shadow hover:bg-yellow-600 transition">
+                    3D Haritayı Görüntüle
+                </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Özellikler Bölümü -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Neden Türkiye Deprem Bilgi Merkezi?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Gerçek Zamanlı Veriler</h3>
+                    <p class="text-gray-600">
+                        Türkiye genelindeki son depremleri anında takip edin ve detaylı bilgilere ulaşın.
+                    </p>
+                </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">3D Haritalar</h3>
+                    <p class="text-gray-600">
+                        Deprem verilerini 3D haritalar üzerinde görselleştirerek daha iyi anlayın.
+                    </p>
+                </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Kullanıcı Dostu Arayüz</h3>
+                    <p class="text-gray-600">
+                        Basit ve sezgisel bir arayüzle deprem verilerine kolayca erişin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Yazıları -->
+    <section class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Son Blog Yazıları</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-bold mb-2">Deprem Nedir?</h3>
+                    <p class="text-gray-600 mb-4">Depremler hakkında temel bilgiler ve nedenleri...</p>
+                    <a href="/blog/deprem-nedir" class="text-blue-500 hover:underline">Devamını Oku</a>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-bold mb-2">Deprem Anında Yapılması Gerekenler</h3>
+                    <p class="text-gray-600 mb-4">Deprem sırasında hayatta kalmak için önemli ipuçları...</p>
+                    <a href="/blog/deprem-aninda-yapilmasi-gerekenler" class="text-blue-500 hover:underline">Devamını Oku</a>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-bold mb-2">Deprem Bölgeleri ve Risk Haritası</h3>
+                    <p class="text-gray-600 mb-4">Türkiye'nin deprem bölgeleri ve risk haritası...</p>
+                    <a href="/blog/deprem-bolgeleri" class="text-blue-500 hover:underline">Devamını Oku</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Deprem Hazırlık Rehberi -->
-    <div class="mt-12">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Deprem Hazırlık Rehberi</h2>
-        <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            Deprem sırasında ve sonrasında güvende kalmak için aşağıdaki önerilere göz atabilirsiniz:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-blue-600 mb-2">Acil Durum Çantası</h3>
-                <p class="text-gray-600">
-                    Su, yiyecek, ilaç ve diğer temel ihtiyaçları içeren bir acil durum çantası hazırlayın.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-green-600 mb-2">Güvenli Alanlar</h3>
-                <p class="text-gray-600">
-                    Evde ve iş yerinde güvenli alanlar belirleyin. Deprem sırasında bu alanlara yönelin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-yellow-600 mb-2">Acil İletişim Planı</h3>
-                <p class="text-gray-600">
-                    Aile üyeleriyle acil durum iletişim planı oluşturun. Herkesin nerede buluşacağını bilin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-red-600 mb-2">Deprem Eğitimi</h3>
-                <p class="text-gray-600">
-                    Deprem eğitimi alarak deprem sırasında ne yapmanız gerektiğini öğrenin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-purple-600 mb-2">Ev Güvenliği</h3>
-                <p class="text-gray-600">
-                    Evdeki eşyaları sabitleyin ve ağır mobilyaları duvara monte edin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-orange-600 mb-2">Deprem Simülatörü</h3>
-                <p class="text-gray-600">
-                    Deprem simülatörleri ile deprem sırasında nasıl davranmanız gerektiğini öğrenin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-teal-600 mb-2">Yerel Yönetim Bilgileri</h3>
-                <p class="text-gray-600">
-                    Yerel yönetimlerin deprem sonrası yardım ve destek bilgilerini takip edin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-indigo-600 mb-2">Toplanma Alanları</h3>
-                <p class="text-gray-600">
-                    Deprem sonrası toplanma alanlarını öğrenin ve bu alanlara nasıl ulaşacağınızı bilin.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow rounded-lg">
-                <h3 class="text-xl font-semibold text-pink-600 mb-2">Psikolojik Destek</h3>
-                <p class="text-gray-600">
-                    Deprem sonrası psikolojik destek almak için yerel kuruluşlarla iletişime geçin.
-                </p>
-            </div>
-        </div>
-
-        <!-- Bağış ve Destek -->
-        <div class="mt-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Bağış ve Destek</h2>
-            <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-                Depremden etkilenenlere yardım etmek için aşağıdaki kuruluşlara bağış yapabilirsiniz:
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Kızılay -->
-                <div class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Kızılay</h3>
-                        <p class="text-gray-600">
-                            Türkiye'nin en köklü yardım kuruluşlarından biri olan Kızılay'a bağış yaparak depremzedelere
-                            destek olabilirsiniz.
-                        </p>
-                        <a href="https://www.kizilay.org.tr/"
-                            class="text-blue-500 font-semibold hover:underline space-x-2">
-                            <span>Bağış Yap</span>
-                        </a>
-                    </div>
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Deprem Hazırlık Rehberi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Acil Durum Çantası</h3>
+                    <p class="text-gray-600">
+                        Su, yiyecek, ilaç ve diğer temel ihtiyaçları içeren bir acil durum çantası hazırlayın.
+                    </p>
                 </div>
-
-                <!-- AFAD -->
-                <div class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-green-600 mb-2">AFAD</h3>
-                        <p class="text-gray-600">
-                            Afet ve Acil Durum Yönetimi Başkanlığı (AFAD) aracılığıyla depremzedelere yardım
-                            edebilirsiniz.
-                        </p>
-                        <a href="https://www.afad.gov.tr/"
-                            class="text-blue-500 font-semibold hover:underline space-x-2">
-                            <span>Bağış Yap</span>
-                        </a>
-                    </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Güvenli Alanlar</h3>
+                    <p class="text-gray-600">
+                        Evde ve iş yerinde güvenli alanlar belirleyin. Deprem sırasında bu alanlara yönelin.
+                    </p>
                 </div>
-
-                <!-- Ahbap -->
-                <div class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-yellow-600 mb-2">Ahbap</h3>
-                        <p class="text-gray-600">
-                            Ahbap Derneği, depremzedelere yardım etmek için çeşitli projeler yürütmektedir.
-                        </p>
-                        <a href="https://www.ahbap.org/" class="text-blue-500 font-semibold hover:underline space-x-2">
-                            <span>Bağış Yap</span>
-                        </a>
-                    </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Acil İletişim Planı</h3>
+                    <p class="text-gray-600">
+                        Aile üyeleriyle acil durum iletişim planı oluşturun. Herkesin nerede buluşacağını bilin.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    {% endblock %}
+    </section>
+
+    <!-- Bağış ve Destek -->
+    <section class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Bağış ve Destek</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Kızılay</h3>
+                    <p class="text-gray-600">
+                        Türkiye'nin en köklü yardım kuruluşlarından biri olan Kızılay'a bağış yaparak depremzedelere destek olabilirsiniz.
+                    </p>
+                    <a href="https://www.kizilay.org.tr/" class="text-blue-500 hover:underline">Bağış Yap</a>
+                </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">AFAD</h3>
+                    <p class="text-gray-600">
+                        Afet ve Acil Durum Yönetimi Başkanlığı (AFAD) aracılığıyla depremzedelere yardım edebilirsiniz.
+                    </p>
+                    <a href="https://www.afad.gov.tr/" class="text-blue-500 hover:underline">Bağış Yap</a>
+                </div>
+                <div class="p-6 bg-white shadow rounded-lg">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Ahbap</h3>
+                    <p class="text-gray-600">
+                        Ahbap Derneği, depremzedelere yardım etmek için çeşitli projeler yürütmektedir.
+                    </p>
+                    <a href="https://www.ahbap.org/" class="text-blue-500 hover:underline">Bağış Yap</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -4,6 +4,8 @@ from app.pages.index import index_page
 from app.pages.earthquake import earthquake_page
 from app.pages.earthquake_waves import earthquake_waves_page
 from app.pages.three_d import three_d_page
+from app.pages.blog import blog_page
+from app.pages.blog_post import blog_post_page
 from app.pages.about import about_page
 from app.pages.faq import faq_page
 from app.pages.contact import contact_page, contact_success_page
@@ -32,6 +34,18 @@ def earthquake_waves():
 @main_blueprint.route('/3d_earthquake')
 def three_d():
     return three_d_page()
+
+@main_blueprint.route('/blog')
+def blog():
+    return blog_page()
+
+@main_blueprint.route('/blog/category/<category>')
+def blog_category(category):
+    return blog_page(category=category)
+
+@main_blueprint.route('/blog/<path:post>')
+def blog_post(post):
+    return blog_post_page(post)
 
 @main_blueprint.route('/about')
 def about():

@@ -1,0 +1,20 @@
+from flask import render_template
+
+# Örnek blog verileri
+BLOG_POSTS = [
+    {"title": "Deprem Nedir?", "content": "Deprem, yer kabuğundaki kırılmalar sonucunda meydana gelen ani sarsıntılardır. Bu sarsıntılar, yer altındaki enerjinin açığa çıkmasıyla oluşur ve dalgalar halinde yeryüzüne ulaşır. Depremler genellikle fay hatları boyunca gerçekleşir. Fay hatları, yer kabuğunu oluşturan levhaların hareketleri nedeniyle gerilim biriktirir ve bu gerilim bir noktada kırılmaya neden olarak depremi tetikler. Depremler sismograf adı verilen cihazlarla ölçülür ve büyüklüğü Richter ölçeği ile ifade edilir. Şiddeti ise Mercalli ölçeğiyle belirlenir ve yeryüzündeki etkisini tanımlar. Depremler, doğanın en yıkıcı güçlerinden biridir ve hazırlıklı olunmadığında ciddi can ve mal kaybına yol açabilir.", "date": "2025-04-29", "author": "Muhtalip Dede", "category": "deprem-nedir", "category_name": "Deprem Nedir"},
+    {"title": "Deprem Önlemleri", "content": "Depreme karşı alınacak önlemler hayat kurtarıcı olabilir. İlk olarak evlerdeki sabitlenmemiş dolaplar, kitaplıklar ve ağır eşyalar duvara monte edilmelidir. Deprem anında başınızı koruyacak bir eşya altına (örneğin masa) girilmeli, düşecek nesnelerden uzak durulmalı ve camlardan uzak kalınmalıdır. Bina çıkışına koşmak yerine bulunduğunuz yerde çök-kapan-tutun pozisyonu alınmalıdır. Ayrıca, acil durum çantası hazırlamak büyük önem taşır. Bu çantada su, gıda, ilk yardım malzemeleri, el feneri, yedek pil ve önemli belgelerin fotokopileri yer almalıdır. Aile bireyleriyle acil durum planı yapmak ve belirli bir toplanma yeri belirlemek de hazırlığın bir parçasıdır. Unutulmamalıdır ki deprem öncesi alınan önlemler, depremin etkisini büyük ölçüde azaltır.", "date": "2025-04-28", "author": "Muhtalip Dede", "category": "deprem-onlemleri", "category_name": "Deprem Önlemleri"},
+    {"title": "Deprem Bölgeleri ve Risk Haritası", "content": "Türkiye, Alp-Himalaya deprem kuşağında yer aldığından dünyanın en aktif sismik bölgelerinden biridir. Türkiye Deprem Tehlike Haritası'na göre ülkemiz 5 deprem bölgesine ayrılmıştır: 1. derece (en riskli) ile 5. derece (en az riskli) arasında sınıflandırılır. Kuzey Anadolu Fay Hattı, Doğu Anadolu Fay Hattı ve Batı Anadolu Graben Sistemi en aktif fay hatları arasında yer alır. Özellikle Marmara, Doğu Anadolu, Ege ve Akdeniz bölgeleri yüksek risk taşımaktadır. 1999 Gölcük ve 2023 Kahramanmaraş depremleri bu riskin önemini tekrar hatırlatmıştır. Risk haritaları, yerleşim planlamasında ve yapı denetiminde kritik rol oynar. Vatandaşlar, bulundukları yerin risk seviyesini e-Devlet üzerinden veya AFAD’ın haritalarından kontrol edebilirler.", "date": "2025-04-27", "author": "Muhtalip Dede", "category": "deprem-bolgeleri", "category_name": "Deprem Bölgeleri"},
+    {"title": "Son Deprem Haberleri", "content": "Son günlerde Türkiye'nin çeşitli bölgelerinde küçük ve orta büyüklükte depremler meydana geldi. 25 Nisan’da Ege Denizi açıklarında 4.7 büyüklüğünde bir deprem kaydedildi. Aynı gün içerisinde Malatya’nın Doğanşehir ilçesinde 3.9 büyüklüğünde başka bir sarsıntı yaşandı. Uzmanlar, bu depremlerin artçı niteliğinde olduğunu ve büyük bir depremin habercisi olmadığını belirtmekle birlikte, yapıların depreme dayanıklılığı konusunda vatandaşları uyarıyor. AFAD ve Kandilli Rasathanesi düzenli olarak sarsıntıları takip etmekte ve halka açık bir şekilde yayınlamaktadır. Son depremlerle ilgili en güncel verilere bu kurumların resmi web sitelerinden ulaşabilirsiniz. Depremler bir doğa gerçeğidir, hazırlıklı olmak her bireyin sorumluluğudur.", "date": "2025-04-26", "author": "Muhtalip Dede", "category": "deprem-haberleri", "category_name": "Deprem Haberleri"},
+]
+
+def blog_post_page(post_slug):
+    # Blog yazısını slug (benzersiz URL parçası) ile bul
+    post_data = next((post for post in BLOG_POSTS if post["category"] == post_slug), None)
+    
+    # Eğer blog yazısı bulunamazsa hata döndür
+    if not post_data:
+        return render_template("404.html"), 404
+
+    # Blog yazısını şablona gönder
+    return render_template("blog_post.html", post=post_data)

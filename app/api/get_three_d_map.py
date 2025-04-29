@@ -34,25 +34,31 @@ def get_three_d_map():
         name="Earthquakes"
     ))
 
-    # Dalga efektlerini ekle
-    for index, row in data.iterrows():
-        for i in range(1, 4):  # 3 dalga halkası
-            fig.add_trace(go.Scatter3d(
-                x=[row["longitude"]],  # Boylam
-                y=[row["latitude"]],   # Enlem
-                z=[-row["depth"]],     # Derinlik
-                mode='markers',
-                marker=dict(
-                    size=row["magnitude"] * 2 * i,  # Dalga yarıçapı büyüklüğe ve iterasyona bağlı
-                    color='rgba(255, 0, 0, 0.2)',   # Kırmızı renk, şeffaflık 0.2
-                    opacity=0.2                     # Dalga şeffaflığı
-                ),
-                name=f"Wave {i} (Magnitude: {row['magnitude']})"
-            ))
+    # Z = 0 ve Z = -30 noktalarını ekle
+    fixed_points = [
+        {"longitude": 22.4502, "latitude": 52.7088, "z": 0},
+        {"longitude": 22.4502, "latitude": 52.7088, "z": -30},
+        {"longitude": 24.7742, "latitude": 47.6258, "z": 0},
+        {"longitude": 24.7742, "latitude": 47.6258, "z": -30},
+    ]
+
+    for point in fixed_points:
+        fig.add_trace(go.Scatter3d(
+            x=[point["longitude"]],
+            y=[point["latitude"]],
+            z=[point["z"]],
+            mode='markers',
+            marker=dict(
+                size=5,  # Sabit noktalar için küçük boyut
+                color='red',  # Sabit noktalar için kırmızı renk
+                opacity=1.0
+            ),
+            name=f"Fixed Point (Z={point['z']})"
+        ))
 
     # Grafik düzenlemeleri
     fig.update_layout(
-        title="3D Earthquake Visualization with Wave Effects",
+        title="3D Earthquake Visualization with Fixed Points",
         scene=dict(
             xaxis_title="Longitude",
             yaxis_title="Latitude",
